@@ -14,13 +14,13 @@ import snack from '@/Assets/Image/PAGE1/Snack.png'
 import bucket from '@/Assets/Image/PAGE1/Bucket.png'
 import tm from '@/Assets/Image/PAGE1/TM Blink.png'
 import chai from '@/Assets/Image/PAGE1/Cahi se khane tak.png'
+import parachute from '@/Assets/Image/PAGE1/Parasute.png'
+import useWindowDimensions from '@/hooks/useWindowDimension'
 
-interface PlayableElement {
-  play(): void
-}
 export default function Loader() {
+  const { height } = useWindowDimensions()
   const [active, setActive] = useState(true)
-  const codeRef = useRef<PlayableElement | null>(null)
+  const codeRef = useRef(null)
   gsap.registerPlugin(ScrollTrigger)
   const [isAnimationPlaying, setAnimationPlaying] = useState(false)
 
@@ -122,18 +122,38 @@ export default function Loader() {
         display: 'flex',
       }
     )
+    timeline.fromTo(
+      '.parachute',
+      {
+        display: 'none',
+      },
+      {
+        display: 'flex',
+        y: height - 250,
+        duration: 7,
+        opacity: 0,
+      }
+    )
 
     // const timeout = setTimeout(() => {
-    //     setActive(false); // Set active to false after 5 seconds
-    // }, 3000);
+    //   setActive(false) // Set active to false after 5 seconds
+    // }, 3000)
 
-    // return () => clearTimeout(timeout); // Clean up the timeout when the component unmounts
+    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    // gsap.to('.parachute', {
+    //   //   rotation: 27,
+    //   y: height - 200,
+    //   //   bottom: 0,
+    //   //   position: 'absolute',
+    //   duration: 4,
+    // })
   }, [])
 
   return (
     <div>
       {active && (
-        <div className="bg  h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center gap-[25px]">
+        <div className="bg   h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center gap-[25px]">
+          <Image src={parachute} className="parachute w-32 h-36 z-50" alt="" />
           <h1 className="wel  text-[#FFED00] lg:text-6xl text-2xl font-extrabold ">
             {' '}
             Welcome to the Galaxy!
@@ -146,7 +166,7 @@ export default function Loader() {
             />
             <Image
               src={cartoonBucket2}
-              className=" hidden logo-bucket  w-32 h-20 absolute top-[67px] z-50 "
+              className=" hidden logo-bucket  w-32 h-20 absolute top-[67px] z-40 "
               alt=""
             />
 
