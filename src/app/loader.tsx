@@ -14,9 +14,13 @@ import snack from '@/Assets/Image/PAGE1/Snack.png'
 import bucket from '@/Assets/Image/PAGE1/Bucket.png'
 import tm from '@/Assets/Image/PAGE1/TM Blink.png'
 import chai from '@/Assets/Image/PAGE1/Cahi se khane tak.png'
+
+interface PlayableElement {
+  play(): void
+}
 export default function Loader() {
   const [active, setActive] = useState(true)
-  const codeRef = useRef(null)
+  const codeRef = useRef<PlayableElement | null>(null)
   gsap.registerPlugin(ScrollTrigger)
   const [isAnimationPlaying, setAnimationPlaying] = useState(false)
 
@@ -25,7 +29,7 @@ export default function Loader() {
       // Check if the animation should be restarted
       if (!isAnimationPlaying) {
         if (codeRef && codeRef.current && codeRef.current) {
-          codeRef.current.play()
+          codeRef?.current?.play()
           setAnimationPlaying(true)
         }
       }
@@ -177,7 +181,7 @@ export default function Loader() {
             </a>
             <div className=" lg:w-16 lg:h-16 h-28 w-28 my-4 lg:my-0">
               <Lottie
-                lottieRef={codeRef}
+                // lottieRef={codeRef}
                 animationData={animationData}
                 onComplete={() => {
                   setAnimationPlaying(false)
