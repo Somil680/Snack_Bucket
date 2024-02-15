@@ -14,17 +14,17 @@ export default function Login() {
     <div className=" flex flex-col justify-center items-center w-full ">
       <style>
         {`.bg{
-                    background-image: url("/images/WhatsApp Image 2024-02-14 at 11.18.40 AM.jpeg");
+                    background-image: url(../Assets/Image/PAGE4/background.jpeg);
                    background-repeat: no-repeat;
                   background-size: cover;
                   }`}
         {`.bg1{
-                    background-image: url("/images/Pinterest.jpg");
+                    background-image: url(../Assets/Image/PAGE4/Pinterest.jpg)
                    background-repeat: no-repeat;
                   background-size: cover;
                   }`}
       </style>
-      <div className=" w-full lg:h-20 h-56 flex  lg:flex-row flex-col  lg:justify-between justify-evenly px-8 bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
+      <div className=" w-full lg:h-20 h-56 flex  lg:flex-row flex-col  lg:justify-between justify-evenly px-8 bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
         <div className=" flex flex-col justify-center items-center">
           <h1 className=" text-white font-normal text-xs">
             For ORDER Visit Our Website
@@ -65,7 +65,7 @@ export default function Login() {
           </a>
         </div>
       </div>
-      <div className=" w-full lg:px-32 g gap-[19px] lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
+      <div className=" w-full lg:px-32 g gap-[19px] lg:py-20 flex flex-col justify-center items-center bg1 bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
         <h1 className=" text-black font-semibold text-xl mb-5 cursor-pointer">
           New USER? Create an Account
         </h1>
