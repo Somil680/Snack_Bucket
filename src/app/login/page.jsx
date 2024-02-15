@@ -24,7 +24,7 @@ export default function Login() {
                   background-size: cover;
                   }`}
       </style>
-      <div className=" w-full lg:h-20 h-36 flex  lg:flex-row flex-col justify-between px-8 bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
+      <div className=" w-full lg:h-20 h-36 flex  lg:flex-row flex-col  justify-between px-8 bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
         <div className=" flex flex-col justify-center items-center">
           <h1 className=" text-white font-normal text-xs">
             For ORDER Visit Our Website
@@ -65,7 +65,7 @@ export default function Login() {
           </a>
         </div>
       </div>
-      <div className=" w-full px-32 py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
+      <div className=" w-full lg:px-32 lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
         <h1 className=" text-black font-semibold text-xl mb-5 cursor-pointer">
           New USER? Create an Account
         </h1>

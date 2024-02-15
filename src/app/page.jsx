@@ -147,7 +147,7 @@ export default function Home() {
       },
       {
         display: 'flex',
-        y: height - 150,
+        y: height - 250,
         duration: 4,
         opacity: 0,
       },
@@ -169,11 +169,11 @@ export default function Home() {
       }
     )
 
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setActive(false) // Set active to false after 5 seconds
     }, 8000)
 
-    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
     //   //   rotation: 27,
     //   y: height - 200,
@@ -187,7 +187,7 @@ export default function Home() {
     <div>
       {' '}
       {active && (
-        <div className="bg   lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center gap-[35px] lg:gap-[90px] relative">
+        <div className="bg   lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[90px] relative">
           <div className="flex flex-col justify-center items-center">
             <Image
               src={parachute}
@@ -258,9 +258,17 @@ export default function Home() {
         <>
           <div className="bg lg:h-screen w-screen  px-4 py-4 flex lg:flex-row flex-col   justify-center items-center gap-3">
             <div className=" flex flex-col lg:w-1/2 lg:h-full h-1/2 w-full justify-center space-y-10 items-center">
-              <Image src={full_logo} className=" w-52 h-52" alt="" />
+              <Image
+                src={full_logo}
+                className=" lg:w-52 lg:h-52 w-40 h-40"
+                alt=""
+              />
               <div className=" flex flex-col wel5 text-6xl text-center text-[#ED3237] font-mono">
-                <Image src={bhuk} className=" w-[26rem] h-[8rem]" alt="" />
+                <Image
+                  src={bhuk}
+                  className=" lg:w-[26rem] lg:h-[8rem] w-[15rem] h-[3rem]"
+                  alt=""
+                />
                 {/* Bhuk lagi hai ?<span>khoob khao...</span> */}
               </div>
               <Link href={'/home'}>
@@ -290,7 +298,11 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Image src={full_logo} className=" w-52 h-52" alt="" />
+              <Image
+                src={full_logo}
+                className=" lg:w-52 lg:h-52 w-40 h-40"
+                alt=""
+              />
 
               <Link href={'/login'}>
                 {' '}
