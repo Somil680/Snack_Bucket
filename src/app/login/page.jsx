@@ -11,7 +11,7 @@ import hand from '@/Assets/Image/PAGE4/hand.png'
 
 export default function Login() {
   return (
-    <div className=" flex flex-col justify-center items-center ">
+    <div className=" flex flex-col justify-center items-center w-full ">
       <style>
         {`.bg{
                     background-image: url("/images/WhatsApp Image 2024-02-14 at 11.18.40 AM.jpeg");
@@ -24,7 +24,7 @@ export default function Login() {
                   background-size: cover;
                   }`}
       </style>
-      <div className=" w-full lg:h-20 h-36 flex  lg:flex-row flex-col  justify-between px-8 bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
+      <div className=" w-full lg:h-20 h-56 flex  lg:flex-row flex-col  lg:justify-between justify-evenly px-8 bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
         <div className=" flex flex-col justify-center items-center">
           <h1 className=" text-white font-normal text-xs">
             For ORDER Visit Our Website
@@ -65,7 +65,7 @@ export default function Login() {
           </a>
         </div>
       </div>
-      <div className=" w-full lg:px-32 lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
+      <div className=" w-full lg:px-32 gap-[19px] lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
         <h1 className=" text-black font-semibold text-xl mb-5 cursor-pointer">
           New USER? Create an Account
         </h1>
@@ -87,7 +87,7 @@ export default function Login() {
               src={Durbeen1}
               width={56}
               height={40}
-              className="w-14 h-10 translate-x-2 translate-y-1"
+              className="w-14 h-10 translate-x-2 translate-y-1 hidden lg:block"
             />
             <input
               type="text"
@@ -99,7 +99,7 @@ export default function Login() {
             <Image
               alt=""
               src={Durbeen2}
-              className="w-14 h-10 translate-x-2 translate-y-1"
+              className="w-14 h-10 translate-x-2 translate-y-1 hidden lg:block"
             />
             <input
               type="text"
@@ -107,12 +107,31 @@ export default function Login() {
               placeholder="PASS CODE"
             />
           </div>
-          <div className="flex w-full justify-center space-x-20 items-center">
+          <div className="flex flex-col lg:flex-row w-full justify-center items-center">
+            <div className="flex w-full justify-center items-center">
+              <Image
+                alt=""
+                src={Durbeen3}
+                className="w-14 h-10 translate-x-2 translate-y-1 hidden lg:block"
+              />
+              <input
+                type="text"
+                className="w-full placeholder:text-white placeholder:font-semibold placeholder:text-lg px-4 py-1 rounded border-[#7F86C1] border-2 bg-[#E6D2E9] outline-none text-white text-lg font-semibold"
+                placeholder="SECURE CODE"
+              />
+            </div>
+            <div className=" lg:w-1/2 w-2 ">
+              <h1 className=" text-[#838096] lg:text-3xl  font-bold italic font-times-new-roman">
+                2FADR#
+              </h1>
+            </div>
+          </div>
+          {/* <div className="flex flex-col lg:flex-row w-full justify-between lg:space-x-20 items-center">
             <div className=" w-1/2 flex">
               <Image
                 alt=""
                 src={Durbeen3}
-                className="w-14 h-10 translate-x-2 translate-y-2"
+                className="w-14 h-10 translate-x-2 translate-y-2 hidden lg:block"
               />
               <input
                 type="text"
@@ -120,30 +139,30 @@ export default function Login() {
                 placeholder="SECURE CODE"
               />
             </div>
-            <div className=" w-1/2 ">
-              <h1 className=" text-[#838096] text-3xl  font-bold italic font-times-new-roman">
+            <div className=" lg:w-1/2 w-2 ">
+              <h1 className=" text-[#838096] lg:text-3xl  font-bold italic font-times-new-roman">
                 2FADR#
               </h1>
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex w-full justify-start items-center ml-32">
+          {/* <div className="flex w-full justify-start items-center ml-32">
             <Image alt="" src={hand} className="w-4 h-5 mr-2" />
             <h1 className="text-[#5463AB] font-medium text-sm ">
               Remember me for 30 days
             </h1>
-          </div>
+          </div> */}
         </form>
 
-        <div className=" lg:mt-[9.6rem]  w-full flex lg:flex-row flex-col justify-between px-32">
+        <div className=" lg:mt-[9.6rem] mt-6 mb-9  w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center gap-5 lg:px-32">
           <div className=" flex justify-center items-center cursor-pointer">
-            <Image alt="" src={Lock} className="w-12 h-14 mr-2" />
+            <Image alt="" src={Lock} className="w-6 h-6 lgw-12 lgh-14 mr-2" />
 
-            <div className=" flex flex-col ">
-              <h1 className=" text-2xl font-medium text-[#580608]">
+            <div className=" flex flex-col w-full ">
+              <h1 className=" text-lg lg:text-2xl  font-medium text-[#580608]">
                 Forget your password?
               </h1>
-              <h1 className=" text-2xl font-medium text-[#580608]">
+              <h1 className=" text-lg lg:text-2xl  font-medium text-[#580608]">
                 Get it Back !
               </h1>
             </div>
