@@ -187,7 +187,7 @@ export default function Home() {
     <div>
       {' '}
       {active && (
-        <div className="bg   lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[90px] relative">
+        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[90px] relative">
           <div className="flex flex-col justify-center items-center">
             <Image
               src={parachute}
