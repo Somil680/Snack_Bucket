@@ -166,11 +166,11 @@ export default function Loader() {
       }
     )
 
-    // const timeout = setTimeout(() => {
-    //   setActive(false) // Set active to false after 5 seconds
-    // }, 8000)
+    const timeout = setTimeout(() => {
+      setActive(false) // Set active to false after 5 seconds
+    }, 8000)
 
-    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
     //   //   rotation: 27,
     //   y: height - 200,
