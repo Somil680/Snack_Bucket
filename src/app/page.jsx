@@ -184,7 +184,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
+    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)] ">
       {' '}
       {active && (
         <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[90px] relative">
