@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {showLoader ? (
+        {/* {showLoader ? (
           <div
           //   style={{
           //     display: 'flex',
@@ -50,11 +50,10 @@ export default function RootLayout({ children }) {
           //     }}
           >
             <Loader />
-            {/* </p> */}
           </div>
         ) : (
-          <>{children}</>
-        )}
+          )} */}
+        <>{children}</>
       </body>
     </html>
   )

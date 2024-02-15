@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import animationData from '@/Assets/Animation/Animation - 1707890850219 (1).json'
 import { useEffect, useRef, useState } from 'react'
@@ -20,7 +21,7 @@ import Rocketee from '@/Assets/Image/PAGE2/Rocketee.png'
 import bhuk from '@/Assets/Image/PAGE2/Bhukh.png'
 import useWindowDimensions from '@/hooks/useWindowDimension'
 
-export default function Loader() {
+export default function Home() {
   const { height } = useWindowDimensions()
   const [active, setActive] = useState(true)
   const codeRef = useRef(null)
@@ -66,6 +67,7 @@ export default function Loader() {
       {
         // display: 'none',
         opacity: 0,
+        display: 'none',
       },
       {
         display: 'flex',
@@ -78,6 +80,7 @@ export default function Loader() {
         // display: 'none',
         top: '60px',
         opacity: 0,
+        display: 'none',
       },
       {
         height: '3rem',
@@ -93,11 +96,11 @@ export default function Loader() {
     timeline.fromTo(
       '.snack',
       {
-        // display: 'none',
+        display: 'none',
         opacity: 0,
       },
       {
-        // display: 'flex',
+        display: 'flex',
         opacity: 1,
         // delay: 1,
       }
@@ -105,29 +108,29 @@ export default function Loader() {
     timeline.fromTo(
       '.bucket',
       {
-        // display: 'none',
+        display: 'none',
         opacity: 0,
       },
       {
-        // display: 'flex',
+        display: 'flex',
         opacity: 1,
       }
     )
     timeline.fromTo(
       '.chai',
       {
-        // display: 'none',
+        display: 'none',
         opacity: 0,
       },
       {
-        // display: 'flex',
+        display: 'flex',
         opacity: 1,
       }
     )
     timeline.fromTo(
       '.below',
       {
-        // display: 'none',
+        display: 'none',
         opacity: 0,
       },
       {

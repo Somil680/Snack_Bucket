@@ -21,6 +21,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/login/page.jsx",
+    "src/app/page.jsx",
+    "src/Assets/Image/PAGE4/svg.jsx"
+  ],
   "exclude": ["node_modules"]
 }
