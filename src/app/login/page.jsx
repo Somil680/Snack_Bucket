@@ -65,7 +65,7 @@ export default function Login() {
           </a>
         </div>
       </div>
-      <div className=" w-full lg:px-32 gap-[19px] lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
+      <div className=" w-full lg:px-32 g gap-[19px] lg:py-20 flex flex-col justify-center items-center bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
         <h1 className=" text-black font-semibold text-xl mb-5 cursor-pointer">
           New USER? Create an Account
         </h1>
