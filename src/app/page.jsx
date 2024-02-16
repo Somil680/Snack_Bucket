@@ -196,7 +196,7 @@ export default function Home() {
             />
             <Image
               src={parachute}
-              className="parachute-2 w-32 h-36 z-50 "
+              className="parachute-2 w-28 h-32 z-50 "
               alt=""
             />
             <h1 className="wel   text-[#FFED00] lg:text-6xl text-2xl font-extrabold ">
@@ -209,12 +209,12 @@ export default function Home() {
             <div className="relative">
               <Image
                 src={cartoonBucket}
-                className=" hidden logo-bucket  w-32 h-36"
+                className=" hidden logo-bucket  w-32 h-[125px"
                 alt=""
               />
               <Image
                 src={cartoonBucket2}
-                className=" hidden logo-bucket  w-32 h-20 absolute top-[67px] z-40 "
+                className=" hidden logo-bucket  w-32 h-20 absolute top-[63px] z-40 "
                 alt=""
               />
 
