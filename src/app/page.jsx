@@ -169,11 +169,11 @@ export default function Home() {
       }
     )
 
-    const timeout = setTimeout(() => {
-      setActive(false) // Set active to false after 5 seconds
-    }, 8000)
+    // const timeout = setTimeout(() => {
+    //   setActive(false) // Set active to false after 5 seconds
+    // }, 8000)
 
-    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
     //   //   rotation: 27,
     //   y: height - 200,
@@ -214,7 +214,7 @@ export default function Home() {
               />
               <Image
                 src={cartoonBucket2}
-                className=" hidden logo-bucket  w-32 h-20 absolute top-[63px] z-40 "
+                className=" hidden logo-bucket  w-32 h-24 absolute top-[63px] z-40 "
                 alt=""
               />
 
