@@ -169,11 +169,11 @@ export default function Home() {
       }
     )
 
-    const timeout = setTimeout(() => {
-      setActive(false) // Set active to false after 5 seconds
-    }, 8000)
+    // const timeout = setTimeout(() => {
+    //   setActive(false) // Set active to false after 5 seconds
+    // }, 8000)
 
-    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
     //   //   rotation: 27,
     //   y: height - 200,
@@ -187,7 +187,7 @@ export default function Home() {
     <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)] ">
       {' '}
       {active && (
-        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[90px] relative">
+        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[10px] relative">
           <div className="flex flex-col justify-center items-center">
             <Image
               src={parachute}
@@ -242,7 +242,7 @@ export default function Home() {
             <a className=" cursor-pointer underline wel3 text-[#FECC00] text-center font-bold lg:text-2xl text-xl my-8">
               Venture Group of Paveetaram Foundation India
             </a>
-            <div className=" lg:w-16 lg:h-16 h-28 w-28 my-4 lg:my-0">
+            <div className=" lg:w-16 lg:h-16 h-20 w-20 my-4 lg:my-0">
               <Lottie
                 // lottieRef={codeRef}
                 animationData={animationData}

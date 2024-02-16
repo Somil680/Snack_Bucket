@@ -65,7 +65,7 @@ export default function Login() {
           </a>
         </div>
       </div>
-      <div className=" w-full lg:px-32 g gap-[19px] lg:py-20 flex flex-col justify-center items-center bg1 bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
+      <div className=" w-full lg:px-12 g gap-[19px] lg:py-20 flex flex-col justify-center items-center bg1 bg-[url(../Assets/Image/PAGE4/Pinterest.jpg)] ">
         <h1 className=" text-black font-semibold text-xl mb-5 cursor-pointer">
           New USER? Create an Account
         </h1>
@@ -154,7 +154,7 @@ export default function Login() {
           </div> */}
         </form>
 
-        <div className=" lg:mt-[9.6rem] mt-6 mb-9  w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center gap-5 lg:px-32">
+        <div className=" lg:mt-[2rem] mt-6 mb-9  w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center gap-5 lg:px-32">
           <div className=" flex justify-center items-center cursor-pointer">
             <Image alt="" src={Lock} className="w-6 h-6 lgw-12 lgh-14 mr-2" />
 
