@@ -147,7 +147,7 @@ export default function Home() {
       },
       {
         display: 'flex',
-        y: height - 250,
+        y: height - 300,
         duration: 4,
         opacity: 0,
       },
