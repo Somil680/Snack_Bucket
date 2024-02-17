@@ -132,9 +132,9 @@ export default function Home() {
         display: 'none',
       },
       {
-        left: '20',
+        left: '15',
         height: '3rem',
-        top: '24px',
+        top: '15px',
         display: 'flex',
         opacity: 1,
         // ease: 'bounce',
@@ -200,7 +200,7 @@ export default function Home() {
             />
             <Image
               src={parachute}
-              className="parachute-2 w-28 h-32 z-50 relative top-[25px] left-[-7px] "
+              className="parachute-2 lg:w-28 lg:h-32 w-20 h-20 top-[16px] left-[-1px] z-50 relative lg:top-[25px] lg:left-[-7px] "
               alt=""
             />
             <h1 className="wel text-center   text-[#FFED00] lg:text-6xl text-2xl font-extrabold font-herald   ">
@@ -213,7 +213,7 @@ export default function Home() {
             <div className="relative">
               <Image
                 src={cartoonBucket}
-                className=" hidden logo-bucket  w-32 h-[125px"
+                className=" hidden logo-bucket  lg:w-32 w-28 h-[125px]"
                 alt=""
               />
               {/* <Image
