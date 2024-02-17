@@ -189,9 +189,9 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)] ">
+    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
       {active && (
-        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative">
+        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative">
           <div className="flex flex-col justify-center items-center ">
             <Image
               src={parachute}
@@ -200,7 +200,7 @@ export default function Home() {
             />
             <Image
               src={parachute}
-              className="parachute-2 lg:w-28 lg:h-32 w-20 h-20 top-[16px] left-[-1px] z-50 relative lg:top-[25px] lg:left-[-7px] "
+              className="parachute-2 lg:w-28 lg:h-32 w-20 h-20 top-[10px] left-[-1px] z-50 relative lg:top-[25px] lg:left-[-7px] "
               alt=""
             />
             <h1 className="wel text-center   text-[#FFED00] lg:text-6xl text-2xl font-extrabold font-herald   ">
