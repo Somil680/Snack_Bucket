@@ -191,7 +191,9 @@ export default function Home() {
   return (
     <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
       {active && (
-        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)] overflow-hidden    h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative">
+        <div
+          className={`"bg bg-[url(../Assets/Image/PAGE4/background.jpeg)] overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
+        >
           <div className="flex flex-col justify-center items-center ">
             <Image
               src={parachute}
