@@ -20,6 +20,8 @@ import full_logo from '@/Assets/Image/PAGE2/Logo Right Wala.png'
 import Rocketee from '@/Assets/Image/PAGE2/Rocketee.png'
 import bhuk from '@/Assets/Image/PAGE2/Bhukh.png'
 import useWindowDimensions from '@/hooks/useWindowDimension'
+import localFont from '@next/font/local'
+// const greatVibes = localFont({ src: 'image/herald.ttf' })
 
 export default function Home() {
   const { height } = useWindowDimensions()
@@ -74,24 +76,6 @@ export default function Home() {
         opacity: 1,
       }
     )
-    timeline.fromTo(
-      '.logo-cartoon',
-      {
-        // display: 'none',
-        top: '60px',
-        opacity: 0,
-        display: 'none',
-      },
-      {
-        height: '3rem',
-        top: '22px',
-        display: 'flex',
-        opacity: 1,
-        ease: 'bounce',
-        duration: 1,
-      },
-      'parachute'
-    )
 
     timeline.fromTo(
       '.snack',
@@ -139,6 +123,26 @@ export default function Home() {
       }
     )
     timeline.fromTo(
+      '.logo-cartoon',
+      {
+        // display: 'none',
+        // top: '60px',
+        left: '-1000px',
+        opacity: 0,
+        display: 'none',
+      },
+      {
+        left: '20',
+        height: '3rem',
+        top: '24px',
+        display: 'flex',
+        opacity: 1,
+        // ease: 'bounce',
+        duration: 3,
+      },
+      'parachute'
+    )
+    timeline.fromTo(
       '.parachute',
       {
         y: -200,
@@ -148,7 +152,8 @@ export default function Home() {
       {
         display: 'flex',
         y: height - 300,
-        duration: 4,
+        delay: 3,
+        duration: 5,
         opacity: 0,
       },
       'parachute'
@@ -185,10 +190,9 @@ export default function Home() {
 
   return (
     <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)] ">
-      {' '}
       {active && (
-        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    lg:h-screen w-screen lg:px-32 lg:py-32 px-4 py-4 flex flex-col justify-center items-center lg:gap-[10px] relative">
-          <div className="flex flex-col justify-center items-center">
+        <div className="bg bg-[url(../Assets/Image/PAGE4/background.jpeg)]    h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative">
+          <div className="flex flex-col justify-center items-center ">
             <Image
               src={parachute}
               className="parachute w-32 h-36 z-50 absolute top-0"
@@ -196,10 +200,10 @@ export default function Home() {
             />
             <Image
               src={parachute}
-              className="parachute-2 w-28 h-32 z-50 "
+              className="parachute-2 w-28 h-32 z-50 relative top-[25px] left-[-7px] "
               alt=""
             />
-            <h1 className="wel   text-[#FFED00] lg:text-6xl text-2xl font-extrabold ">
+            <h1 className="wel text-center   text-[#FFED00] lg:text-6xl text-2xl font-extrabold font-herald   ">
               {' '}
               Welcome to the Galaxy!
             </h1>
@@ -212,11 +216,11 @@ export default function Home() {
                 className=" hidden logo-bucket  w-32 h-[125px"
                 alt=""
               />
-              <Image
+              {/* <Image
                 src={cartoonBucket2}
                 className=" hidden logo-bucket  w-32 h-24 absolute top-[63px] z-40 "
                 alt=""
-              />
+              /> */}
 
               <Image
                 src={cartoon}
@@ -224,22 +228,31 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <div className="flex">
-              <Image src={snack} className="snack w-64" alt="" />
+            <div className="flex gap-3">
+              {/* <p className="snack  text-9xl h-[74px] text-[#ffed00] font-stainy ">
+                Snack
+              </p> */}
+              <Image src={snack} className="snack w-80" alt="" />
               <span className="">
                 <Image src={tm} className="w-7 snack" alt="" />
               </span>
             </div>
+            {/* <p className=" bucket text-[7rem] h-[119px] text-[#e31e23] font-budmoj ">
+              Bucket
+            </p> */}
             <Image src={bucket} className="bucket w-[32rem]" alt="" />
 
             <div className="chai flex   justify-end items-end w-full ">
+              {/* <p className="snack  text-4xl text-[#ffed00] font-stainy ">
+                Chai se khane tak...
+              </p> */}
               <Image src={chai} className=" chai w-[15rem]" alt="" />
             </div>
           </div>
 
           {/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */}
           <div className=" below  lg:flex-row justify-center items-center flex-col">
-            <a className=" cursor-pointer underline wel3 text-[#FECC00] text-center font-bold lg:text-2xl text-xl my-8">
+            <a className=" cursor-pointer underline wel3 text-[#FECC00] text-center font-bold lg:text-2xl text-xl lg:text-[2rem] font-khumerUI ">
               Venture Group of Paveetaram Foundation India
             </a>
             <div className=" lg:w-16 lg:h-16 h-20 w-20 my-4 lg:my-0">
@@ -328,37 +341,37 @@ export default function Home() {
   )
 }
 
-// <style>
+// {/* <style>
 //   {`.bg{
-//               background-image: url("/images/WhatsApp Image 2024-02-14 at 11.18.40 AM.jpeg");
-//              background-repeat: no-repeat;
-//             background-size: cover;
-//             }
-//             @font-face {
-//               font-family: 'CustomFont1';
-//               src: url('/images/herald.ttf') format('truetype'); /* Adjust the path and format as needed */
-//           }
+//         background-image: url("/images/WhatsApp Image 2024-02-14 at 11.18.40 AM.jpeg");
+//        background-repeat: no-repeat;
+//       background-size: cover;
+//       }
+//       @font-face {
+//         font-family: 'CustomFont1';
+//         src: url('../Assets/image/herald.ttf') format('truetype'); /* Adjust the path and format as needed */
+//     }
 
-//           @font-face {
-//               font-family: 'CustomFont2';
-//               src: url('/images/Stainy_PersonalUseOnly.ttf') format('truetype'); /* Adjust the path and format as needed */
-//           }
-//           @font-face {
-//               font-family: 'CustomFont3';
-//               src: url('/images/BudmoJiggler.ttf') format('truetype'); /* Adjust the path and format as needed */
-//           }
-//           @font-face {
-//               font-family: 'CustomFont4';
-//               src: url('/images/KhmerUI.ttf') format('truetype'); /* Adjust the path and format as needed */
-//           }
-//           @font-face {
-//               font-family: 'CustomFont5';
-//               src: url('/images/NoyhAHand-MenuScript.ttf') format('truetype'); /* Adjust the path and format as needed */
-//           }
-//           .wel{
-//               font-family: "CustomFont1";
-//               letter-spacing: .3rem;
-//             }
+//     @font-face {
+//         font-family: 'CustomFont2';
+//         src: url('/images/Stainy_PersonalUseOnly.ttf') format('truetype'); /* Adjust the path and format as needed */
+//     }
+//     @font-face {
+//         font-family: 'CustomFont3';
+//         src: url('/images/BudmoJiggler.ttf') format('truetype'); /* Adjust the path and format as needed */
+//     }
+//     @font-face {
+//         font-family: 'CustomFont4';
+//         src: url('/images/KhmerUI.ttf') format('truetype'); /* Adjust the path and format as needed */
+//     }
+//     @font-face {
+//         font-family: 'CustomFont5';
+//         src: url('/images/NoyhAHand-MenuScript.ttf') format('truetype'); /* Adjust the path and format as needed */
+//     }
+//     .wel{
+//         font-family: "CustomFont1";
+//         letter-spacing: .3rem;
+//       }
 
-//             `}
-// </style>
+//       `}
+// </style> */}
