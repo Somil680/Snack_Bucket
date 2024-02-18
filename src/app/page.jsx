@@ -50,7 +50,7 @@ export default function Home() {
     }
   }, [isAnimationPlaying])
   useEffect(() => {
-    const jumpTimeline = gsap.timeline({ repeat: -1 })
+    const jumpTimeline = gsap.timeline({ repeat: 1 })
     jumpTimeline
       .to(
         '.logo-cartoon',
@@ -70,6 +70,7 @@ export default function Home() {
         }
         // 'parachute'
       )
+    console.log('🚀 ~ useEffect ~ jumpTimeline:', jumpTimeline)
     const timeline = gsap.timeline()
     timeline.fromTo(
       '.wel',
@@ -169,10 +170,10 @@ export default function Home() {
       // jumpTimeline.kill(),
       'parachute'
     )
-    timeline.then(() => {
-      jumpTimeline.kill() // Safely stop the jump timeline
-      // setActive(false) // Optionally set active state
-    })
+    // timeline.then(() => {
+    // jumpTimeline.kill() // Safely stop the jump timeline
+    //   // setActive(false) // Optionally set active state
+    // })
     timeline.fromTo(
       '.parachute',
       {
@@ -206,7 +207,7 @@ export default function Home() {
 
     const timeout = setTimeout(() => {
       setActive(false) // Set active to false after 5 seconds
-    }, 10000)
+    }, 15000)
 
     return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
@@ -270,7 +271,7 @@ export default function Home() {
       /> */}
       {active && (
         <div
-          className={`" overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
+          className={`" bg-[url(../Assets/Image/PAGE4/background.jpeg)]  overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
         >
           <div className="flex flex-col justify-center items-center ">
             <Image
