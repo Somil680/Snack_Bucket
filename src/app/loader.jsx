@@ -27,158 +27,214 @@ export default function Loader() {
   gsap.registerPlugin(ScrollTrigger)
   const [isAnimationPlaying, setAnimationPlaying] = useState(false)
 
-  useEffect(() => {
-    function handleScroll() {
-      // Check if the animation should be restarted
-      if (!isAnimationPlaying) {
-        if (codeRef && codeRef.current && codeRef.current) {
-          codeRef?.current?.play()
-          setAnimationPlaying(true)
-        }
-      }
-    }
+  // useEffect(() => {
+  //   function handleScroll() {
+  //     // Check if the animation should be restarted
+  //     if (!isAnimationPlaying) {
+  //       if (codeRef && codeRef.current && codeRef.current) {
+  //         codeRef?.current?.play()
+  //         setAnimationPlaying(true)
+  //       }
+  //     }
+  //   }
 
-    // Add a scroll event listener
-    window.addEventListener('scroll', handleScroll)
+  //   // Add a scroll event listener
+  //   window.addEventListener('scroll', handleScroll)
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [isAnimationPlaying])
-  useEffect(() => {
-    const timeline = gsap.timeline()
-    timeline.fromTo(
-      '.wel',
-      {
-        opacity: 0,
-        scale: 0,
-      },
-      {
-        duration: 1,
-        opacity: 1,
-        scale: 1,
-      }
-    )
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [isAnimationPlaying])
+  // useEffect(() => {
+  //   const jumpTimeline = gsap.timeline({ repeat: -1 })
+  //   jumpTimeline
+  //     .to(
+  //       '.logo-cartoon',
+  //       {
+  //         y: '-50px',
+  //         duration: 0.5,
+  //         ease: 'Bounce.easeOut',
+  //       },
+  //       'parachute'
+  //     )
+  //     .to(
+  //       '.logo-cartoon',
+  //       {
+  //         y: '0px',
+  //         duration: 0.5,
+  //         ease: 'Bounce.easeIn',
+  //       },
+  //       'parachute'
+  //     )
+  //   const timeline = gsap.timeline()
+  //   timeline.fromTo(
+  //     '.wel',
+  //     {
+  //       opacity: 0,
+  //       scale: 0,
+  //     },
+  //     {
+  //       duration: 1,
+  //       opacity: 1,
+  //       scale: 1,
+  //     }
+  //   )
 
-    timeline.fromTo(
-      '.logo-bucket',
-      {
-        // display: 'none',
-        opacity: 0,
-      },
-      {
-        display: 'flex',
-        opacity: 1,
-      }
-    )
-    timeline.fromTo(
-      '.logo-cartoon',
-      {
-        // display: 'none',
-        top: '60px',
-        opacity: 0,
-      },
-      {
-        height: '3rem',
-        top: '22px',
-        display: 'flex',
-        opacity: 1,
-        ease: 'bounce',
-        duration: 1,
-      },
-      'parachute'
-    )
+  //   timeline.fromTo(
+  //     '.logo-bucket',
+  //     {
+  //       // display: 'none',
+  //       opacity: 0,
+  //     },
+  //     {
+  //       display: 'flex',
+  //       opacity: 1,
+  //     }
+  //   )
+  //   // timeline.fromTo(
+  //   //   '.logo-cartoon',
+  //   //   {
+  //   //     // display: 'none',
+  //   //     top: '60px',
+  //   //     opacity: 0,
+  //   //   },
+  //   //   {
+  //   //     // height: '3rem',
+  //   //     top: '2px',
+  //   //     display: 'flex',
+  //   //     opacity: 1,
+  //   //     ease: 'bounce',
+  //   //     duration: 6,
+  //   //   },
+  //   //   'parachute'
+  //   // )
 
-    timeline.fromTo(
-      '.snack',
-      {
-        // display: 'none',
-        opacity: 0,
-      },
-      {
-        // display: 'flex',
-        opacity: 1,
-        // delay: 1,
-      }
-    )
-    timeline.fromTo(
-      '.bucket',
-      {
-        // display: 'none',
-        opacity: 0,
-      },
-      {
-        // display: 'flex',
-        opacity: 1,
-      }
-    )
-    timeline.fromTo(
-      '.chai',
-      {
-        // display: 'none',
-        opacity: 0,
-      },
-      {
-        // display: 'flex',
-        opacity: 1,
-      }
-    )
-    timeline.fromTo(
-      '.below',
-      {
-        // display: 'none',
-        opacity: 0,
-      },
-      {
-        display: 'flex',
-        opacity: 1,
-      }
-    )
-    timeline.fromTo(
-      '.parachute',
-      {
-        y: -200,
+  //   timeline.fromTo(
+  //     '.snack',
+  //     {
+  //       // display: 'none',
+  //       opacity: 0,
+  //     },
+  //     {
+  //       // display: 'flex',
+  //       opacity: 1,
+  //       // delay: 1,
+  //     }
+  //   )
+  //   timeline.fromTo(
+  //     '.bucket',
+  //     {
+  //       // display: 'none',
+  //       opacity: 0,
+  //     },
+  //     {
+  //       // display: 'flex',
+  //       opacity: 1,
+  //     }
+  //   )
+  //   timeline.fromTo(
+  //     '.chai',
+  //     {
+  //       // display: 'none',
+  //       opacity: 0,
+  //     },
+  //     {
+  //       // display: 'flex',
+  //       opacity: 1,
+  //     }
+  //   )
+  //   timeline.fromTo(
+  //     '.below',
+  //     {
+  //       // display: 'none',
+  //       opacity: 0,
+  //     },
+  //     {
+  //       display: 'flex',
+  //       opacity: 1,
+  //     }
+  //   )
+  //   timeline.fromTo(
+  //     '.parachute',
+  //     {
+  //       y: -200,
 
-        display: 'none',
-      },
-      {
-        display: 'flex',
-        y: height - 150,
-        duration: 4,
-        opacity: 0,
-      },
-      'parachute'
-    )
-    timeline.fromTo(
-      '.parachute-2',
-      {
-        // y: -200,
-        opacity: 0,
+  //       display: 'none',
+  //     },
+  //     {
+  //       display: 'flex',
+  //       y: height - 150,
+  //       duration: 4,
+  //       opacity: 0,
+  //     },
+  //     'parachute'
+  //   )
+  //   timeline.fromTo(
+  //     '.parachute-2',
+  //     {
+  //       // y: -200,
+  //       opacity: 0,
 
-        // display: 'none',
-      },
-      {
-        // display: 'flex',
-        // y: height - 150,
-        // duration: 4,
-        opacity: 1,
-      }
-    )
+  //       // display: 'none',
+  //     },
+  //     {
+  //       // display: 'flex',
+  //       // y: height - 150,
+  //       // duration: 4,
+  //       opacity: 1,
+  //     }
+  //   )
 
-    setTimeout(() => {
-      setActive(false) // Set active to false after 5 seconds
-    }, 8000)
+  //   // setTimeout(() => {
+  //   //   setActive(false) // Set active to false after 5 seconds
+  //   // }, 8000)
 
-    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
-    // gsap.to('.parachute', {
-    //   //   rotation: 27,
-    //   y: height - 200,
-    //   //   bottom: 0,
-    //   //   position: 'absolute',
-    //   duration: 4,
-    // })
-  }, [])
+  //   // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+  // }, [])
+  // useEffect(() => {
+  //   // Jump animation timeline
+
+  //   const jumpTimeline = gsap.timeline({ repeat: -1 })
+  //   jumpTimeline
+  //     .to('.logo-cartoon', {
+  //       y: '-50px',
+  //       duration: 0.5,
+  //       ease: 'Bounce.easeOut',
+  //     })
+  //     .to('.logo-cartoon', {
+  //       y: '0px',
+  //       duration: 0.5,
+  //       ease: 'Bounce.easeIn',
+  //     })
+  //   console.log('🚀 ~ useEffect ~ jumpTimel ine:', jumpTimeline)
+
+  //   // Move forward animation timeline
+  //   // const moveTimeline = gsap.timeline({ repeat: -1 })
+  //   // moveTimeline.to(characterRef.current, {
+  //   //   x: '100vw',
+  //   //   duration: 5,
+  //   //   ease: 'Linear.easeNone',
+  //   // })
+
+  //   // Trigger jump animation on scroll
+  //   // window.addEventListener('scroll', () => {
+  //   //   const scrollPosition = window.scrollY
+  //   //   if (scrollPosition > 100) {
+  //   //     jumpTimeline.restart()
+  //   //   } else {
+  //   //     jumpTimeline.pause()
+  //   //   }
+  //   // })
+
+  //   // Start move animation after jump completes
+  //   // jumpTimeline.play().then(() => moveTimeline.play())
+
+  //   // return () => {
+  //   //   jumpTimeline.kill()
+  //   //   moveTimeline.kill()
+  //   // }
+  // }, [])
 
   return (
     <div>

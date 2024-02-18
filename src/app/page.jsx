@@ -50,6 +50,26 @@ export default function Home() {
     }
   }, [isAnimationPlaying])
   useEffect(() => {
+    const jumpTimeline = gsap.timeline({ repeat: -1 })
+    jumpTimeline
+      .to(
+        '.logo-cartoon',
+        {
+          y: '-50px',
+          duration: 2,
+          ease: 'bounce',
+        }
+        // 'parachute'
+      )
+      .to(
+        '.logo-cartoon',
+        {
+          y: '0px',
+          duration: 2,
+          ease: 'bounce',
+        }
+        // 'parachute'
+      )
     const timeline = gsap.timeline()
     timeline.fromTo(
       '.wel',
@@ -132,21 +152,31 @@ export default function Home() {
         display: 'none',
       },
       {
-        left: '15',
-        height: '3rem',
+        left: '15px',
         top: '15px',
+        duration: 5,
+        ease: 'Linear.easeNone',
+        setActive: false,
+
+        // left: '15',
+        // height: '3rem',
+        // top: '15px',
         display: 'flex',
         opacity: 1,
         // ease: 'bounce',
-        duration: 3,
+        // duration: 3,
       },
+      // jumpTimeline.kill(),
       'parachute'
     )
+    timeline.then(() => {
+      jumpTimeline.kill() // Safely stop the jump timeline
+      // setActive(false) // Optionally set active state
+    })
     timeline.fromTo(
       '.parachute',
       {
         y: -200,
-
         display: 'none',
       },
       {
@@ -174,11 +204,11 @@ export default function Home() {
       }
     )
 
-    // const timeout = setTimeout(() => {
-    //   setActive(false) // Set active to false after 5 seconds
-    // }, 8000)
+    const timeout = setTimeout(() => {
+      setActive(false) // Set active to false after 5 seconds
+    }, 10000)
 
-    // return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
+    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
     //   //   rotation: 27,
     //   y: height - 200,
@@ -186,13 +216,61 @@ export default function Home() {
     //   //   position: 'absolute',
     //   duration: 4,
     // })
-  }, [])
+  })
+  const characterRef = useRef(null)
 
+  // useEffect(() => {
+  //   // Jump animation timeline
+  //   const jumpTimeline = gsap.timeline({ repeat: -1 })
+  //   jumpTimeline
+  //     .to(characterRef.current, {
+  //       y: '-20px',
+  //       duration: 0.2,
+  //       ease: 'Bounce.easeOut',
+  //     })
+  //     .to(characterRef.current, {
+  //       y: '20px',
+  //       duration: 0.2,
+  //       ease: 'Bounce.easeIn',
+  //     })
+
+  //   // Move forward animation timeline
+  //   const moveTimeline = gsap.timeline({ repeat: -1 })
+  //   moveTimeline.to(characterRef.current, {
+  //     x: '100vw',
+  //     duration: 5,
+  //     ease: 'Linear.easeNone',
+  //   })
+
+  //   // Trigger jump animation on scroll
+  //   // window.addEventListener('scroll', () => {
+  //   //   const scrollPosition = window.scrollY
+  //   //   if (scrollPosition > 100) {
+  //   //     jumpTimeline.restart()
+  //   //   } else {
+  //   //     jumpTimeline.pause()
+  //   //   }
+  //   // })
+
+  //   // // Start move animation after jump completes
+  //   // jumpTimeline.play().then(() => moveTimeline.play())
+
+  //   // return () => {
+  //   //   jumpTimeline.kill()
+  //   //   moveTimeline.kill()
+  //   // }
+  // }, [])
   return (
-    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)]  ">
+    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)]   ">
+      {/* <Image
+        src={cartoon}
+        ref={characterRef}
+        className="  w-[5rem] h-[3rem] "
+        alt=""
+      /> */}
       {active && (
         <div
-          className={`"bg bg-[url(../Assets/Image/PAGE4/background.jpeg)] overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
+          className={`" overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
         >
           <div className="flex flex-col justify-center items-center ">
             <Image
@@ -218,11 +296,11 @@ export default function Home() {
                 className=" hidden logo-bucket  lg:w-32 w-28 h-[125px]"
                 alt=""
               />
-              {/* <Image
+              <Image
                 src={cartoonBucket2}
-                className=" hidden logo-bucket  w-32 h-24 absolute top-[63px] z-40 "
+                className=" hidden logo-bucket  w-32 h-16 absolute top-[58px] z-40 "
                 alt=""
-              /> */}
+              />
 
               <Image
                 src={cartoon}
@@ -230,12 +308,12 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <div className="flex gap-3">
+            <div className="flex ">
               {/* <p className="snack  text-9xl h-[74px] text-[#ffed00] font-stainy ">
                 Snack
               </p> */}
               <Image src={snack} className="snack w-80" alt="" />
-              <span className="">
+              <span className="mt-4">
                 <Image src={tm} className="w-7 snack" alt="" />
               </span>
             </div>
