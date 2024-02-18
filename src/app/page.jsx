@@ -50,8 +50,9 @@ export default function Home() {
     }
   }, [isAnimationPlaying])
   useEffect(() => {
-    const jumpTimeline = gsap.timeline({ repeat: -1 })
-    jumpTimeline
+    const jumpTimeline = gsap
+      .timeline({ repeat: -1 })
+
       .to(
         '.logo-cartoon',
         {
@@ -70,6 +71,7 @@ export default function Home() {
         }
         // 'parachute'
       )
+
     console.log('🚀 ~ useEffect ~ jumpTimeline:', jumpTimeline)
     const timeline = gsap.timeline()
     timeline.fromTo(
@@ -143,21 +145,59 @@ export default function Home() {
         opacity: 1,
       }
     )
+    // timeline.fromTo(
+    //   '.logo-cartoon',
+    //   {
+    //     // display: 'none',
+    //     // top: '60px',
+    //     left: '-1000px',
+    //     opacity: 0,
+    //     display: 'none',
+    //   },
+    //   {
+    //     left: '15px',
+    //     top: '15px',
+    //     duration: 5,
+    //     ease: 'Linear.easeNone',
+    //     setActive: false,
+
+    //     // left: '15',
+    //     // height: '3rem',
+    //     // top: '15px',
+    //     display: 'flex',
+    //     opacity: 1,
+    //     // ease: 'bounce',
+    //     // duration: 3,
+    //   },
+    //   // jumpTimeline.kill(),
+    //   'parachute'
+    // )
+    timeline.fromTo(
+      '.parachute',
+      {
+        y: -200,
+        display: 'none',
+      },
+      {
+        display: 'flex',
+        y: height - 300,
+        // delay: 3,
+        duration: 5,
+        opacity: 0,
+      }
+    )
     timeline.fromTo(
       '.logo-cartoon',
       {
-        // display: 'none',
-        // top: '60px',
-        left: '-1000px',
+        left: '-900px',
         opacity: 0,
-        display: 'none',
+        // display: 'none',
       },
       {
         left: '15px',
         top: '15px',
         duration: 5,
         ease: 'Linear.easeNone',
-        setActive: false,
 
         // left: '15',
         // height: '3rem',
@@ -170,44 +210,29 @@ export default function Home() {
       // jumpTimeline.kill(),
       'parachute'
     )
-    // timeline.then(() => {
-    // jumpTimeline.kill() // Safely stop the jump timeline
-    //   // setActive(false) // Optionally set active state
-    // })
-    timeline.fromTo(
-      '.parachute',
-      {
-        y: -200,
-        display: 'none',
-      },
-      {
-        display: 'flex',
-        y: height - 300,
-        delay: 3,
-        duration: 5,
-        opacity: 0,
-      },
-      'parachute'
-    )
     timeline.fromTo(
       '.parachute-2',
       {
-        // y: -200,
         opacity: 0,
-
         // display: 'none',
       },
       {
         // display: 'flex',
-        // y: height - 150,
-        // duration: 4,
         opacity: 1,
-      }
+      },
+      'parachute'
     )
-
-    const timeout = setTimeout(() => {
-      setActive(false) // Set active to false after 5 seconds
-    }, 15000)
+    const timeout = timeline.then(() => {
+      jumpTimeline.kill()
+      setTimeout(() => {
+        setActive(false) // Set active to false after 5 seconds
+      }, 3000)
+      // setActive(false) // Optionally set active state
+    })
+    // const timeout =
+    // setTimeout(() => {
+    // //   setActive(false) // Set active to false after 5 seconds
+    // // }, 15000)
 
     return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
     // gsap.to('.parachute', {
@@ -217,7 +242,7 @@ export default function Home() {
     //   //   position: 'absolute',
     //   duration: 4,
     // })
-  })
+  }, [])
   const characterRef = useRef(null)
 
   // useEffect(() => {
