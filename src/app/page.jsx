@@ -21,11 +21,14 @@ import Rocketee from '@/Assets/Image/PAGE2/Rocketee.png'
 import bhuk from '@/Assets/Image/PAGE2/Bhukh.png'
 import useWindowDimensions from '@/hooks/useWindowDimension'
 import localFont from '@next/font/local'
+import CustomEase from 'gsap/CustomEase'
 // const greatVibes = localFont({ src: 'image/herald.ttf' })
 
+// import { BezierPlugin } from 'gsap/BezierPlugin'
+
 export default function Home() {
-  const { height } = useWindowDimensions()
-  const [active, setActive] = useState(true)
+  const { height, width } = useWindowDimensions()
+  const [active, setActive] = useState(false)
   const codeRef = useRef(null)
   gsap.registerPlugin(ScrollTrigger)
   const [isAnimationPlaying, setAnimationPlaying] = useState(false)
@@ -49,10 +52,18 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [isAnimationPlaying])
+
   useEffect(() => {
+    var bezier = {
+      type: 'soft',
+      values: [
+        { x: 0, y: 0 },
+        { x: 100, y: -100 },
+        { x: 200, y: 0 },
+      ],
+    }
     const jumpTimeline = gsap
       .timeline({ repeat: -1 })
-
       .to(
         '.logo-cartoon',
         {
@@ -72,7 +83,47 @@ export default function Home() {
         // 'parachute'
       )
 
-    console.log('🚀 ~ useEffect ~ jumpTimeline:', jumpTimeline)
+    const cartoonTimeline = gsap
+      .timeline({})
+
+      .to(
+        '.logo-cartoon',
+        {
+          left: '-900px',
+          opacity: 0,
+          top: '300px',
+        },
+        'parachute'
+      )
+      .to(
+        '.logo-cartoon',
+        {
+          left: '-206px',
+          ease: 'Linear.easeNone',
+
+          // top: '15px',
+          top: '189px',
+          // left: '15',
+          // height: '3rem',
+          // top: '15px',
+          // display: 'flex',
+          // ease: 'bounce',
+          // duration: 3,
+        },
+        'parachute'
+      )
+      .to(
+        '.logo-cartoon',
+        {
+          opacity: 1,
+          duration: 5,
+          top: '100px',
+          left: '-150px',
+          ease: 'Linear.easeNone',
+        },
+        'parachute'
+      )
+
     const timeline = gsap.timeline()
     timeline.fromTo(
       '.wel',
@@ -90,7 +141,6 @@ export default function Home() {
     timeline.fromTo(
       '.logo-bucket',
       {
-        // display: 'none',
         opacity: 0,
         display: 'none',
       },
@@ -109,7 +159,6 @@ export default function Home() {
       {
         display: 'flex',
         opacity: 1,
-        // delay: 1,
       }
     )
     timeline.fromTo(
@@ -145,45 +194,18 @@ export default function Home() {
         opacity: 1,
       }
     )
-    // timeline.fromTo(
-    //   '.logo-cartoon',
-    //   {
-    //     // display: 'none',
-    //     // top: '60px',
-    //     left: '-1000px',
-    //     opacity: 0,
-    //     display: 'none',
-    //   },
-    //   {
-    //     left: '15px',
-    //     top: '15px',
-    //     duration: 5,
-    //     ease: 'Linear.easeNone',
-    //     setActive: false,
-
-    //     // left: '15',
-    //     // height: '3rem',
-    //     // top: '15px',
-    //     display: 'flex',
-    //     opacity: 1,
-    //     // ease: 'bounce',
-    //     // duration: 3,
-    //   },
-    //   // jumpTimeline.kill(),
-    //   'parachute'
-    // )
     timeline.fromTo(
       '.parachute',
       {
         y: -200,
         display: 'none',
+        opacity: 0,
       },
       {
         display: 'flex',
-        y: height - 300,
-        // delay: 3,
-        duration: 5,
-        opacity: 0,
+        y: 0,
+        duration: 3,
+        opacity: 1,
       }
     )
     timeline.fromTo(
@@ -191,37 +213,78 @@ export default function Home() {
       {
         left: '-900px',
         opacity: 0,
-        // display: 'none',
+        top: '300px',
       },
       {
-        left: '15px',
-        top: '15px',
-        duration: 5,
+        left: '-206px',
         ease: 'Linear.easeNone',
+        top: '189px',
+        duration: 3,
+        opacity: 1,
+        display: 'flex',
 
+        // top: '15px',
         // left: '15',
         // height: '3rem',
         // top: '15px',
-        display: 'flex',
-        opacity: 1,
         // ease: 'bounce',
-        // duration: 3,
-      },
-      // jumpTimeline.kill(),
-      'parachute'
+        // display: 'flex',
+        // duration: 5,
+        // top: '10px',
+        // left: '-15px',
+        // ease: 'Linear.easeNone',
+      }
+      // 'parachute'
     )
     timeline.fromTo(
-      '.parachute-2',
+      '.logo-cartoon',
       {
-        opacity: 0,
-        // display: 'none',
+        left: '-206px',
+        top: '189px',
+        // duration: 3,
       },
       {
-        // display: 'flex',
-        opacity: 1,
-      },
-      'parachute'
+        left: '-80px',
+        top: '90px',
+        ease: 'power1.inOut',
+        duration: 2,
+        // opacity: 1,
+        display: 'flex',
+      }
     )
+    timeline.fromTo(
+      '.logo-cartoon',
+      {
+        left: '-80px',
+        top: '90px',
+      },
+      {
+        duration: 3,
+        ease: 'power1.inOut',
+        left: '20px',
+        top: '16px',
+        display: 'flex',
+      },
+      'jump_1'
+    )
+    // timeline.fromTo(
+    //   '.logo-cartoon',
+    //   {
+    //     x: -105,
+    //     y: -70,
+    //   },
+    //   {
+    //     x: -4,
+    //     y: -7,
+    //     duration: 3,
+    //     ease: 'power1.inOut',
+    //     // left: '20px',
+    //     // top: '16px',
+    //     // display: 'flex',
+    //   }
+    //   // 'jump_1'
+    // )
+
     const timeout = timeline.then(() => {
       jumpTimeline.kill()
       setTimeout(() => {
@@ -229,84 +292,39 @@ export default function Home() {
       }, 3000)
       // setActive(false) // Optionally set active state
     })
-    // const timeout =
-    // setTimeout(() => {
-    // //   setActive(false) // Set active to false after 5 seconds
-    // // }, 15000)
-
-    return () => clearTimeout(timeout) // Clean up the timeout when the component unmounts
-    // gsap.to('.parachute', {
-    //   //   rotation: 27,
-    //   y: height - 200,
-    //   //   bottom: 0,
-    //   //   position: 'absolute',
-    //   duration: 4,
-    // })
+    return () => clearTimeout(timeout)
   }, [])
-  const characterRef = useRef(null)
 
-  // useEffect(() => {
-  //   // Jump animation timeline
-  //   const jumpTimeline = gsap.timeline({ repeat: -1 })
-  //   jumpTimeline
-  //     .to(characterRef.current, {
-  //       y: '-20px',
-  //       duration: 0.2,
-  //       ease: 'Bounce.easeOut',
-  //     })
-  //     .to(characterRef.current, {
-  //       y: '20px',
-  //       duration: 0.2,
-  //       ease: 'Bounce.easeIn',
-  //     })
+  // gsap.registerPlugin(BezierPlugin)
 
-  //   // Move forward animation timeline
-  //   const moveTimeline = gsap.timeline({ repeat: -1 })
-  //   moveTimeline.to(characterRef.current, {
-  //     x: '100vw',
-  //     duration: 5,
-  //     ease: 'Linear.easeNone',
-  //   })
+  // var bezier = {
+  //   type: 'soft',
+  //   values: [
+  //     { x: 0, y: 0 },
+  //     { x: 100, y: -100 },
+  //     { x: 200, y: 0 },
+  //   ],
+  // }
 
-  //   // Trigger jump animation on scroll
-  //   // window.addEventListener('scroll', () => {
-  //   //   const scrollPosition = window.scrollY
-  //   //   if (scrollPosition > 100) {
-  //   //     jumpTimeline.restart()
-  //   //   } else {
-  //   //     jumpTimeline.pause()
-  //   //   }
-  //   // })
+  // Animate the circle along the defined parabola
+  // gsap.to('#circle', {
+  //   duration: 2,
+  //   repeat: -1,
+  //   yoyo: true,
+  //   bezier: bezier,
+  //   ease: 'power1.inOut',
+  // })
 
-  //   // // Start move animation after jump completes
-  //   // jumpTimeline.play().then(() => moveTimeline.play())
-
-  //   // return () => {
-  //   //   jumpTimeline.kill()
-  //   //   moveTimeline.kill()
-  //   // }
-  // }, [])
   return (
-    <div className="bg-[url(../Assets/Image/PAGE4/background.jpeg)]   ">
-      {/* <Image
-        src={cartoon}
-        ref={characterRef}
-        className="  w-[5rem] h-[3rem] "
-        alt=""
-      /> */}
+    <div className="bg-[url(../Assets/gif/galaxy-awesome-perfect-blue-usagif.gif)] bg-cover bg-center bg-no-repeat   ">
       {active && (
         <div
-          className={`" bg-[url(../Assets/Image/PAGE4/background.jpeg)]  overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
+          className={`"  overflow-hidden  h-[92vh]    lg:h-screen w-screen lg:px-32 lg:py-7 px-4 py-4 flex flex-col justify-around items-center lg:gap-[10px] relative"`}
         >
           <div className="flex flex-col justify-center items-center ">
             <Image
               src={parachute}
-              className="parachute w-32 h-36 z-50 absolute top-0"
-              alt=""
-            />
-            <Image
-              src={parachute}
-              className="parachute-2 lg:w-28 lg:h-32 w-20 h-20 top-[10px] left-[-1px] z-50 relative lg:top-[25px] lg:left-[-7px] "
+              className="lg:w-28 lg:h-32 w-20 h-20 parachute  "
               alt=""
             />
             <h1 className="wel text-center   text-[#FFED00] lg:text-6xl text-2xl font-extrabold font-herald   ">
@@ -322,15 +340,15 @@ export default function Home() {
                 className=" hidden logo-bucket  lg:w-32 w-28 h-[125px]"
                 alt=""
               />
-              <Image
+              {/* <Image
                 src={cartoonBucket2}
                 className=" hidden logo-bucket  w-32 h-16 absolute top-[58px] z-40 "
                 alt=""
-              />
+              /> */}
 
               <Image
                 src={cartoon}
-                className=" hidden logo-cartoon w-[5rem] h-[3rem] absolute top-[18px] left-[21px]"
+                className=" hidden logo-cartoon w-[4rem] h-[3rem] lg:w-20 absolute top-[18px] left-[21px]"
                 alt=""
               />
             </div>
@@ -338,7 +356,7 @@ export default function Home() {
               {/* <p className="snack  text-9xl h-[74px] text-[#ffed00] font-stainy ">
                 Snack
               </p> */}
-              <Image src={snack} className="snack w-80" alt="" />
+              <Image src={snack} className="snack lg:w-80 w-64" alt="" />
               <span className="mt-4">
                 <Image src={tm} className="w-7 snack" alt="" />
               </span>
@@ -375,7 +393,7 @@ export default function Home() {
       )}
       {!active && (
         <>
-          <div className="bg lg:h-screen w-screen  px-4 py-4 flex lg:flex-row flex-col   justify-center items-center gap-3">
+          <div className="bg lg:h-screen w-screen  px-4 py-4 flex lg:flex-row flex-col   justify-around items-center lg:gap-3 gap-[34px]">
             <div className=" flex flex-col lg:w-1/2 lg:h-full h-1/2 w-full justify-center space-y-10 items-center">
               <Image
                 src={full_logo}
@@ -385,55 +403,57 @@ export default function Home() {
               <div className=" flex flex-col wel5 text-6xl text-center text-[#ED3237] font-mono">
                 <Image
                   src={bhuk}
-                  className=" lg:w-[26rem] lg:h-[8rem] w-[15rem] h-[3rem]"
+                  className=" lg:w-[26rem] lg:h-[8rem] w-[18rem] h-[5rem]"
                   alt=""
                 />
                 {/* Bhuk lagi hai ?<span>khoob khao...</span> */}
               </div>
               <Link href={'/home'}>
-                <div className=" flex  hover:scale-125 transition-all">
-                  <button className=" border-[#00A859] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#00CF82] justify-center items-center">
-                    <span>ORDER</span> <span className=" underline">NOW</span>
-                  </button>
+                <div className=" w-[121px] relative   hover:scale-125 transition-all">
                   <Image
                     alt=""
                     src={Rocketee}
-                    className=" w-8 h-10 -translate-y-5 -translate-x-5"
+                    className=" w-8 h-10 -translate-y-5 -translate-x-5 absolute right-[-33px] "
                   />
+                  <button className=" w-full border-[#00A859] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#00CF82] justify-center items-center">
+                    <span>ORDER</span> <span className=" underline">NOW</span>
+                  </button>
                 </div>
               </Link>
             </div>
 
             <div className=" flex flex-col lg:w-1/2 w-full lg:h-full h-1/2 justify-center lg:border-l-2 border-white items-center gap-[34px] lg:gap-[100px]">
               <Link href={'/login'}>
-                <div className=" hover:scale-125 transition-all flex">
-                  <button className=" border-[#414B9B] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#5AA4D0] justify-center items-center">
-                    Franchiser Login
-                  </button>
+                <div className=" hover:scale-125 transition-all  relative">
                   <Image
                     alt=""
                     src={Rocketee}
-                    className=" w-8 h-10 -translate-y-5 -translate-x-5"
+                    className=" w-8 h-10 -translate-y-5 -translate-x-5 absolute left-[237px]"
                   />
+                  <button className=" border-[#414B9B] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#5AA4D0] justify-center items-center">
+                    Franchiser Login
+                  </button>
                 </div>
               </Link>
               <Image
                 src={full_logo}
-                className=" lg:w-52 lg:h-52 w-40 h-40"
+                className={
+                  width < 400 ? '   hidden' : 'lg:w-52 lg:h-52 w-40 h-40'
+                }
                 alt=""
               />
 
               <Link href={'/login'}>
                 {' '}
-                <div className=" hover:scale-125 transition-all flex ">
-                  <button className=" border-[#00A859] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#00CF82] justify-center items-center">
-                    <span>Become a</span> <span className=" ">Franchiser?</span>
-                  </button>
+                <div className="w-[179px] hover:scale-125 transition-all relative  ">
                   <Image
                     alt=""
                     src={Rocketee}
-                    className=" w-8 h-10 -translate-y-5 -translate-x-5"
+                    className=" w-8 h-10 -translate-y-5 -translate-x-5 absolute left-[183px] "
                   />{' '}
+                  <button className=" border-[#00A859] border-[3.5px] text-[#2B2A2A]  flex flex-col font-extrabold text-2xl px-4 py-2 rounded bg-[#00CF82] justify-center items-center">
+                    <span>Become a</span> <span className=" ">Franchiser?</span>
+                  </button>
                 </div>
               </Link>
             </div>
