@@ -50,13 +50,13 @@ export default function Home() {
     }
   }, [isAnimationPlaying])
   useEffect(() => {
-    const jumpTimeline = gsap.timeline({ repeat: 1 })
+    const jumpTimeline = gsap.timeline({ repeat: -1 })
     jumpTimeline
       .to(
         '.logo-cartoon',
         {
-          y: '-50px',
-          duration: 2,
+          y: '-5px',
+          duration: 0.2,
           ease: 'bounce',
         }
         // 'parachute'
@@ -65,7 +65,7 @@ export default function Home() {
         '.logo-cartoon',
         {
           y: '0px',
-          duration: 2,
+          duration: 0.2,
           ease: 'bounce',
         }
         // 'parachute'
