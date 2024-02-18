@@ -211,9 +211,9 @@ export default function Home() {
     timeline.fromTo(
       '.logo-cartoon',
       {
-        left: '-900px',
+        left: '-1000px',
         opacity: 0,
-        top: '300px',
+        top: 'i89px',
       },
       {
         left: '-206px',
