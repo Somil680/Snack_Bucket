@@ -28,7 +28,7 @@ import CustomEase from 'gsap/CustomEase'
 
 export default function Home() {
   const { height, width } = useWindowDimensions()
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(true)
   const codeRef = useRef(null)
   gsap.registerPlugin(ScrollTrigger)
   const [isAnimationPlaying, setAnimationPlaying] = useState(false)
